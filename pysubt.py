@@ -1,6 +1,4 @@
 
-
-
 import sys
 import re
 from PyQt5.QtWidgets import QMainWindow, QFileDialog, QPushButton, QTextEdit, QLineEdit, QLabel, QAction, qApp, QApplication
@@ -21,9 +19,6 @@ class subtitle_entry():
         return retVal
         
     
-    
-
-
 class SubtitleMaker(QMainWindow):
     
     def __init__(self):
@@ -33,8 +28,7 @@ class SubtitleMaker(QMainWindow):
         self.fnam = ""
         
         self.initUI()
-        
-        
+              
     def initUI(self): 
     
         self.lb_idx = QLabel('Index:',self)
@@ -114,9 +108,7 @@ class SubtitleMaker(QMainWindow):
         self.setGeometry(300, 300, 450, 350)
         self.setWindowTitle('Simple Subtitles - v0.01')    
         self.show()
-
     
-        
     def nextEntry(self):
         print("next")
         starttime = self.startEdit.text()
@@ -129,9 +121,7 @@ class SubtitleMaker(QMainWindow):
             
         if len(subt_text) <= 0 :
             return
-        
-        
-        
+             
     def newFile(self):
         print('new file')
         self.fnam = self.__saveFileDialog()
@@ -143,8 +133,7 @@ class SubtitleMaker(QMainWindow):
         fnam = self.__openFileNameDialog()
         if self.readinsrtfile(fnam):
             self.fnam = fnam
-        
-        
+          
     def generatesrt(self):
         print("generate")
     
@@ -188,8 +177,7 @@ class SubtitleMaker(QMainWindow):
                         self.entries.append(se)
                         
                         mystate = 'index'
-                    
-      
+     
         print("subts read",len(self.entries))
         return True
         
@@ -206,7 +194,6 @@ class SubtitleMaker(QMainWindow):
             startT = en.starttime
             stopT = en.stoptime
             
-            
         return retVal
     
     def __getTimeFromSubTime(self,subtime):
@@ -216,8 +203,7 @@ class SubtitleMaker(QMainWindow):
         sekund = zeug[2]
         millisekund = zeug[3]
         
-        
-            
+              
     def isSubtitleTime(self,input):
         retVal = False
         
@@ -257,3 +243,5 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = SubtitleMaker()
     sys.exit(app.exec_())
+    
+    
